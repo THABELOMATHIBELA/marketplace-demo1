@@ -2,16 +2,57 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Marketplace Demo</title>
+  <title>Motseoa Beauty</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Welcome to My Marketplace Demo</h1>
-  <p>This is a simple demo website.</p>
 
-  <button id="demo-btn">Click me</button>
+<header class="header">
+  <div class="container header-inner">
+    <h1 class="logo">Motseoa Beauty</h1>
 
-  <script src="app.js"></script>
+    <input
+      type="search"
+      id="search"
+      placeholder="Search products..."
+      oninput="filterProducts()"
+    >
+
+    <button class="cart-btn" onclick="openCart()">
+      Cart (<span id="cart-count">0</span>)
+    </button>
+  </div>
+</header>
+
+<main class="container">
+  <h2 class="section-title">Shop Collection</h2>
+
+  <div class="product-grid" id="product-grid">
+    <!-- Products injected by JS -->
+  </div>
+</main>
+
+<!-- CART MODAL -->
+<div class="cart-modal" id="cart-modal">
+  <div class="cart-content">
+    <h2>Your Cart</h2>
+
+    <div id="cart-items"></div>
+
+    <p class="total">
+      Total: M<span id="cart-total">0</span>
+    </p>
+
+    <button class="checkout-btn">Checkout (Demo)</button>
+    <button class="close-btn" onclick="closeCart()">Close</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
 </body>
 </html>
